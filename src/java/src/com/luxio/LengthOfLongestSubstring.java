@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 无重复字符的最长子串
+ * 3.无重复字符的最长子串
+ * 给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度
  */
 public class LengthOfLongestSubstring {
     public static void main(String[] args) {
@@ -22,7 +23,7 @@ public class LengthOfLongestSubstring {
                 i = Math.max(map.get(s.charAt(j)), i);
             }
             ans = Math.max(ans, j - i + 1);
-            map.put(s.charAt(j), j + 1);
+            map.put(s.charAt(j), j + 1);//下标 + 1 代表 i 要移动的下个位置
         }
         return ans;
     }
