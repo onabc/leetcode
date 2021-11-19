@@ -1,4 +1,4 @@
-package com.luxio;
+package com.luxio.q0001_TwoSum;
 
 import java.util.Arrays;
 import java.util.HashMap;
