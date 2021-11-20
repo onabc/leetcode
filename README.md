@@ -1,2 +1,2 @@
 # leetcode
-leetcode solution written in java
+leetcode solution written in c++
