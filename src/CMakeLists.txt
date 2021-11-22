@@ -2,5 +2,6 @@
 
 project ("leetcode")
 
-add_subdirectory ("0001.two_sum")
+add_subdirectory ("0001.Two Sum")
+add_subdirectory ("0002.Add Two Numbers")
 
