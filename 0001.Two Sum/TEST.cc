@@ -5,7 +5,7 @@
 
 using namespace std;
 
-TEST_CASE("Two Sum", "twoSum")
+TEST_CASE("Two Sum", "[twoSum]")
 {
 	vector<int> nums1{ 2, 7, 11, 15 };
 	REQUIRE(twoSum(nums1, 9) == vector<int>{0, 1});

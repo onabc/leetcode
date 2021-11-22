@@ -16,7 +16,7 @@ ListNode* create_linkedlist(initializer_list<int> lst)
 	return head;
 }
 
-TEST_CASE("Add Two Numbers", "addTwoNumbers")
+TEST_CASE("Add Two Numbers", "[addTwoNumbers]")
 {
 	Solution s;
 	vector<int> result;
