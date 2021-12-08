@@ -17,6 +17,7 @@ add_subdirectory ("0015.3Sum")
 add_subdirectory ("0017.Letter Combinations of a Phone Number")
 
 add_subdirectory ("0019.Remove Nth Node From End of List")
+add_subdirectory ("0020.Valid Parentheses")
 
 
 
