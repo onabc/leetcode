@@ -22,6 +22,8 @@ add_subdirectory ("0021.Merge Two Sorted Lists")
 add_subdirectory ("0022.Generate Parentheses")
 add_subdirectory ("0023.Merge k Sorted Lists")
 
+add_subdirectory ("0031.Next Permutation")
+
 
 
 
