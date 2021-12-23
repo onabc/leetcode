@@ -23,6 +23,7 @@ add_subdirectory ("0022.Generate Parentheses")
 add_subdirectory ("0023.Merge k Sorted Lists")
 
 add_subdirectory ("0031.Next Permutation")
+add_subdirectory ("0032.Longest Valid Parentheses")
 
 
 
