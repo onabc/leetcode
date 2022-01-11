@@ -24,6 +24,7 @@ add_subdirectory ("0023.Merge k Sorted Lists")
 
 add_subdirectory ("0031.Next Permutation")
 add_subdirectory ("0032.Longest Valid Parentheses")
+add_subdirectory ("0033.Search in Rotated Sorted Array")
 
 
 
