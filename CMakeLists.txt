@@ -27,6 +27,8 @@ add_subdirectory ("0032.Longest Valid Parentheses")
 add_subdirectory ("0033.Search in Rotated Sorted Array")
 add_subdirectory ("0034.Find First and Last Position of Element in Sorted Array")
 
+add_subdirectory ("0039.Combination Sum")
+
 
 
 
