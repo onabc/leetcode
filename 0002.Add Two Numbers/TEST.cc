@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
 #include "../Catch/catch.hpp"
-#include "add_two_numbers.h"
+#include "solution.h"
 
 using namespace std;
 
@@ -18,7 +18,7 @@ ListNode* create_linkedlist(initializer_list<int> lst)
 
 TEST_CASE("Add Two Numbers", "[addTwoNumbers]")
 {
-	Solution s;
+	solution s;
 	vector<int> result;
 
 	ListNode* l1 = create_linkedlist({ 2,4,3 });

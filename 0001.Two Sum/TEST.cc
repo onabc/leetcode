@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN
 #include <vector>
 #include "../Catch/catch.hpp"
-#include "two_sum.h"
+#include "solution.h"
 
 using namespace std;
 
