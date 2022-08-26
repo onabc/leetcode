@@ -3,6 +3,7 @@
 #include "solution.h"
 
 using namespace std;
+using Catch::Matchers::Equals;
 
 ListNode* create_linkedlist(initializer_list<int> lst)
 {
@@ -18,7 +19,7 @@ ListNode* create_linkedlist(initializer_list<int> lst)
 
 TEST_CASE("Add Two Numbers", "[addTwoNumbers]")
 {
-	solution s;
+	Solution s;
 	vector<int> result;
 
 	ListNode* l1 = create_linkedlist({ 2,4,3 });
@@ -27,5 +28,5 @@ TEST_CASE("Add Two Numbers", "[addTwoNumbers]")
 	for (ListNode* cur = ret; cur; cur = cur->next)
 		result.push_back(cur->val);
 
-	REQUIRE((result == vector<int>{7, 0, 8}));
+	CHECK_THAT(result, Equals(vector<int>{7, 0, 8}));
 }

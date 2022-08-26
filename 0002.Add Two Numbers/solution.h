@@ -1,12 +1,12 @@
 #include "../include/ListNode.h"
 
-class solution
+class Solution
 {
 public:
 	ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
 };
 
-ListNode* solution::addTwoNumbers(ListNode* l1, ListNode* l2) {
+ListNode* Solution::addTwoNumbers(ListNode* l1, ListNode* l2) {
 	ListNode* dummy = new ListNode();
 	ListNode* cur = dummy;
 	int carry = 0;

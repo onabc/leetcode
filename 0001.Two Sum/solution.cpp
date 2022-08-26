@@ -1,7 +1,8 @@
 #include <vector>
 #include <unordered_map>
 
-using namespace std;
+using std::vector;
+using std::unordered_map;
 
 vector<int> twoSum(vector<int>& nums, int target)
 {
