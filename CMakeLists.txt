@@ -29,5 +29,8 @@ add_subdirectory ("0034.Find First and Last Position of Element in Sorted Array"
 add_subdirectory ("0039.Combination Sum")
 
 
+add_subdirectory ("Sort Algorithm")
+
+
 
 
