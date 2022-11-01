@@ -1,3 +1,5 @@
+#include "../include/printArr.h"
+
 /// <summary>
 /// Ã°ÅÝÅÅÐò
 /// </summary>
@@ -152,18 +154,36 @@ void radixSort(std::vector<int>& nums)
 {
 }
 
-/// <summary>
-/// ´òÓ¡Êý×é
-/// </summary>
-/// <param name="arr"></param>
-void printArr(std::vector<int>& arr)
+void heapAdjust(std::vector<int>& nums, int start, int end)
 {
-	int len = arr.size();
-	std::cout << "[";
-	if (len > 1) {
-		for (int i = 0; i < len; ++i) {
-			std::cout << arr[i] << (i < len - 1 ? ", " : " ");
-		}
+	int root = start;
+	int child = 2 * root + 1;
+	while (child < end)
+	{
+		if (child + 1 <= end && nums[child] < nums[child + 1]) ++child;
+		if (nums[child] <= nums[root]) return;
+		std::swap(nums[root], nums[child]);
+		root = child;
+		child = 2 * root + 1;
 	}
-	std::cout << "]" << std::endl;
 }
+/// <summary>
+/// ¶ÑÅÅÐò
+/// </summary>
+/// <param name="nums"></param>
+void heapSort(std::vector<int>& nums)
+{
+	int len = nums.size();
+	if (len < 2) return;
+	for (int i = len / 2 - 1; i >= 0; --i)
+	{
+		heapAdjust(nums, i, len - 1);
+	}
+
+	for(int j = len -1; j > 0;--j)
+	{
+		std::swap(nums[0], nums[j]);
+		heapAdjust(nums, 0, j - 1);
+	}
+}
+

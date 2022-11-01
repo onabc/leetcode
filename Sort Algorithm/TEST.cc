@@ -57,4 +57,13 @@ TEST_CASE("Sort Algorithm", "[sortAlgorithm]")
 		//printArr(arr);
 		REQUIRE(arr == ans);
 	}
+
+	SECTION("heap sort")
+	{
+		std::vector<int> arr{ 3, 2, 8, 6, 0, 9, 7 };
+		std::vector<int> ans{ 0, 2, 3, 6, 7, 8, 9 };
+		heapSort(arr);
+		//printArr(arr);
+		REQUIRE(arr == ans);
+	}
 }
