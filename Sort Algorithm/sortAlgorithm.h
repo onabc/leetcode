@@ -1,27 +1,29 @@
 #include "../include/printArr.h"
 
+#pragma region √∞≈›≈≈–Ú
 /// <summary>
 /// √∞≈›≈≈–Ú
 /// </summary>
 /// <param name="arr"></param>
-void bubbleSort(std::vector<int>& arr)
+void bubbleSort(std::vector<int>& nums)
 {
-	int len = arr.size();
-	if (len <= 1) return;
+	int len = nums.size();
+	if (len < 2) return;
 	for (int i = 0; i < len - 1; ++i)
 	{
 		bool isSwap = false;
-		for (int j = 0; j < len - 1 - i; ++j) {
-			if (arr[j] > arr[j + 1]) {
-				std::swap(arr[j], arr[j + 1]);
-				isSwap = true;
-			}
+		for (int j = 0; j < len - 1 - i; ++j)
+		{
+			if (nums[j] <= nums[j + 1]) continue;
+			std::swap(nums[j], nums[j + 1]);
+			isSwap = true;
 		}
-
-		if (!isSwap) break;
+		if (!isSwap) return;
 	}
 }
+#pragma endregion √∞≈›≈≈–Ú
 
+#pragma region —°‘Ò≈≈–Ú
 /// <summary>
 /// —°‘Ò≈≈–Ú
 /// </summary>
@@ -29,29 +31,33 @@ void bubbleSort(std::vector<int>& arr)
 void selectionSort(std::vector<int>& nums)
 {
 	int len = nums.size();
-	if (len <= 1) return;
-	for (int i = 0; i < len - 1; ++i) {
+	if (len < 2) return;
+	for (int i = 0; i < len - 1; ++i)
+	{
 		int minIndex = i;
 		for (int j = i + 1; j < len; ++j)
 		{
-			if (nums.at(minIndex) > nums[j]) {
-				minIndex = j;
-			}
+			if (nums[j] < nums[minIndex]) minIndex = j;
 		}
-		if (minIndex != i) {
-			std::swap(nums.at(minIndex), nums.at(i));
+		if (minIndex != i)
+		{
+			std::swap(nums[minIndex], nums[i]);
 		}
 	}
 }
+#pragma endregion —°‘Ò≈≈–Ú
 
+#pragma region ≤Â»Î≈≈–Ú
 /// <summary>
 /// ≤Â»Î≈≈–Ú
 /// </summary>
 /// <param name="nums"></param>
-void insertSort(std::vector<int>& nums) {
+void insertSort(std::vector<int>& nums)
+{
 	int len = nums.size();
 	if (len <= 1) return;
-	for (int i = 1; i < len; ++i) {
+	for (int i = 1; i < len; ++i)
+	{
 		int insertVal = nums[i];
 		int insertIndex = i - 1;
 		while (insertIndex >= 0 && insertVal < nums[insertIndex])
@@ -62,16 +68,21 @@ void insertSort(std::vector<int>& nums) {
 		nums[insertIndex + 1] = insertVal;
 	}
 }
+#pragma endregion ≤Â»Î≈≈–Ú
 
+#pragma region œ£∂˚≈≈–Ú-“∆∂Ø∑®
 /// <summary>
 /// œ£∂˚≈≈–Ú-“∆∂Ø∑®
 /// </summary>
 /// <param name="nums"></param>
-void shellSort(std::vector<int>& nums) {
+void shellSort(std::vector<int>& nums)
+{
 	int len = nums.size();
 	if (len <= 1) return;
-	for (int gap = len / 2; gap > 0; gap /= 2) {
-		for (int i = gap; i < len; ++i) {
+	for (int gap = len / 2; gap > 0; gap /= 2)
+	{
+		for (int i = gap; i < len; ++i)
+		{
 			int index = i;
 			int temp = nums[i];
 			while (index - gap >= 0 && temp < nums[index - gap])
@@ -83,15 +94,20 @@ void shellSort(std::vector<int>& nums) {
 		}
 	}
 }
+#pragma endregion œ£∂˚≈≈–Ú-“∆∂Ø∑®
 
-void quickSortSub(std::vector<int>& nums, int left, int right) {
+#pragma region øÏÀŸ≈≈–Ú
+void quickSortSub(std::vector<int>& nums, int left, int right)
+{
 	if (left > right) return;
 	int base = nums[left];
 	int i = left, j = right;
-	while (i != j) {
+	while (i != j)
+	{
 		while (nums[j] >= base && i < j) --j;
 		while (nums[i] <= base && i < j) ++i;
-		if (i < j) {
+		if (i < j)
+		{
 			std::swap(nums[i], nums[j]);
 		}
 	}
@@ -106,12 +122,15 @@ void quickSortSub(std::vector<int>& nums, int left, int right) {
 /// øÏÀŸ≈≈–Ú
 /// </summary>
 /// <param name="nums"></param>
-void quickSort(std::vector<int>& nums) {
+void quickSort(std::vector<int>& nums)
+{
 	int len = nums.size();
 	if (len < 2) return;
 	quickSortSub(nums, 0, len - 1);
 }
+#pragma endregion øÏÀŸ≈≈–Ú
 
+#pragma region πÈ≤¢≈≈–Ú
 void merge(std::vector<int>& nums, int left, int mid, int right)
 {
 	std::vector<int> temp{};
@@ -128,7 +147,8 @@ void merge(std::vector<int>& nums, int left, int mid, int right)
 		nums[left + m] = temp[m];
 	}
 }
-void mergeSort(std::vector<int>& nums, int left, int right) {
+void mergeSort(std::vector<int>& nums, int left, int right)
+{
 	int mid = (left + right) / 2;
 	if (left < right) {
 		mergeSort(nums, left, mid);
@@ -140,12 +160,15 @@ void mergeSort(std::vector<int>& nums, int left, int right) {
 /// πÈ≤¢≈≈–Ú
 /// </summary>
 /// <param name="nums"></param>
-void mergeSort(std::vector<int>& nums) {
+void mergeSort(std::vector<int>& nums)
+{
 	int len = nums.size();
 	if (len < 2) return;
 	mergeSort(nums, 0, len - 1);
 }
+#pragma endregion πÈ≤¢≈≈–Ú
 
+#pragma region ª˘ ˝≈≈–Ú
 /// <summary>
 /// ª˘ ˝≈≈–Ú
 /// </summary>
@@ -153,7 +176,9 @@ void mergeSort(std::vector<int>& nums) {
 void radixSort(std::vector<int>& nums)
 {
 }
+#pragma endregion ª˘ ˝≈≈–Ú
 
+#pragma region ∂—≈≈–Ú
 void heapAdjust(std::vector<int>& nums, int start, int end)
 {
 	int root = start;
@@ -180,10 +205,10 @@ void heapSort(std::vector<int>& nums)
 		heapAdjust(nums, i, len - 1);
 	}
 
-	for(int j = len -1; j > 0;--j)
+	for (int j = len - 1; j > 0; --j)
 	{
 		std::swap(nums[0], nums[j]);
 		heapAdjust(nums, 0, j - 1);
 	}
 }
-
+#pragma endregion ∂—≈≈–Ú
