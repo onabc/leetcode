@@ -1,3 +1,6 @@
+#ifndef SORTALGORITHM_H
+#define SORTALGORITHM_H
+
 #include "../include/printArr.h"
 
 #pragma region √∞≈›≈≈–Ú
@@ -21,7 +24,7 @@ void bubbleSort(std::vector<int>& nums)
 		if (!isSwap) return;
 	}
 }
-#pragma endregion √∞≈›≈≈–Ú
+#pragma endregion 
 
 #pragma region —°‘Ò≈≈–Ú
 /// <summary>
@@ -45,7 +48,7 @@ void selectionSort(std::vector<int>& nums)
 		}
 	}
 }
-#pragma endregion —°‘Ò≈≈–Ú
+#pragma endregion 
 
 #pragma region ≤Â»Î≈≈–Ú
 /// <summary>
@@ -68,7 +71,7 @@ void insertSort(std::vector<int>& nums)
 		nums[insertIndex + 1] = insertVal;
 	}
 }
-#pragma endregion ≤Â»Î≈≈–Ú
+#pragma endregion 
 
 #pragma region œ£∂˚≈≈–Ú-“∆∂Ø∑®
 /// <summary>
@@ -94,7 +97,7 @@ void shellSort(std::vector<int>& nums)
 		}
 	}
 }
-#pragma endregion œ£∂˚≈≈–Ú-“∆∂Ø∑®
+#pragma endregion 
 
 #pragma region øÏÀŸ≈≈–Ú
 void quickSortSub(std::vector<int>& nums, int left, int right)
@@ -128,7 +131,7 @@ void quickSort(std::vector<int>& nums)
 	if (len < 2) return;
 	quickSortSub(nums, 0, len - 1);
 }
-#pragma endregion øÏÀŸ≈≈–Ú
+#pragma endregion 
 
 #pragma region πÈ≤¢≈≈–Ú
 void merge(std::vector<int>& nums, int left, int mid, int right)
@@ -166,7 +169,7 @@ void mergeSort(std::vector<int>& nums)
 	if (len < 2) return;
 	mergeSort(nums, 0, len - 1);
 }
-#pragma endregion πÈ≤¢≈≈–Ú
+#pragma endregion 
 
 #pragma region ª˘ ˝≈≈–Ú
 /// <summary>
@@ -176,7 +179,7 @@ void mergeSort(std::vector<int>& nums)
 void radixSort(std::vector<int>& nums)
 {
 }
-#pragma endregion ª˘ ˝≈≈–Ú
+#pragma endregion 
 
 #pragma region ∂—≈≈–Ú
 void heapAdjust(std::vector<int>& nums, int start, int end)
@@ -211,4 +214,8 @@ void heapSort(std::vector<int>& nums)
 		heapAdjust(nums, 0, j - 1);
 	}
 }
-#pragma endregion ∂—≈≈–Ú
+#pragma endregion 
+
+#endif
+
+
