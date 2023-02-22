@@ -5,38 +5,31 @@ using namespace std;
 
 double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2)
 {
-	if (nums1.size() > nums2.size()) {
-		return findMedianSortedArrays(nums2, nums1);
-	}
+	int len1 = nums1.size(), len2 = nums2.size();
+	if (len1 > len2) return findMedianSortedArrays(nums2, nums1);
 
-	int m = nums1.size();
-	int n = nums2.size();
-
-	int left = 0, right = m;
-
-	// median1：前一部分的最大值
-	// median2：后一部分的最小值
+	int left = 0, right = len1;
 	int median1 = 0, median2 = 0;
 
 	while (left <= right)
 	{
 		int i = (left + right) / 2;
-		int j = (m + n + 1) / 2 - i;
+		int j = (len1 + len2 + 1) / 2 - i;
 
-		int num_im = i == 0 ? INT_MIN : nums1[i - 1];
-		int num_i = i == m ? INT_MAX : nums1[i];
-		int num_jm = j == 0 ? INT_MIN : nums2[j - 1];
-		int num_j = j == n ? INT_MAX : nums2[j];
+		int nums1_left_max = i == 0 ? INT_MIN : nums1[i - 1];
+		int nums1_right_min = i == len1 ? INT_MAX : nums1[i];
 
-		if (num_im <= num_j) {
-			median1 = max(num_im, num_jm);
-			median2 = min(num_i, num_j);
+		int nums2_left_max = j == 0 ? INT_MIN : nums2[j - 1];
+		int nums2_right_min = j == len2 ? INT_MAX : nums2[j];
+
+		if (nums1_left_max <= nums2_right_min) {
+			median1 = max(nums1_left_max, nums2_left_max);
+			median2 = min(nums1_right_min, nums2_right_min);
 			left = i + 1;
 		}
 		else {
 			right = i - 1;
 		}
 	}
-
-	return (m + n) % 2 == 0 ? (median1 + median2) / 2.0 : median1;
+	return (len1 + len2) % 2 == 0 ? (median1 + median2) / 2.0 : median1;
 }
