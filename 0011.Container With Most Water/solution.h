@@ -22,10 +22,27 @@ public:
 		return ans;
 	}
 	*/
+
+	/*
 	int maxArea(vector<int>& height) {
 		int ans{ 0 };
 		for (auto begin = height.begin(), end = prev(height.end()); begin < end; *begin < *end ? begin++ : end--) {
 			ans = max(ans, static_cast<int>(end - begin) * min(*begin, *end));
+		}
+		return ans;
+	}
+	*/
+
+	int maxArea(vector<int>& height)
+	{
+		int left = 0, right = height.size() - 1;
+		int ans = 0;
+		while (left < right)
+		{
+			int bottom = right - left;
+			ans = height[left] < height[right] ?
+				std::max(ans, bottom * height[left++]) :
+				std::max(ans, bottom * height[right--]);
 		}
 		return ans;
 	}
