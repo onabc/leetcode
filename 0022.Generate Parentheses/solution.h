@@ -10,9 +10,9 @@ public:
 		return ans;
 	}
 
-	void generate(string str, int l, int r) {
-		if (l == 0 && r == 0) ans.push_back(str);
-		if (l > 0) generate(str + "(", l - 1, r + 1);
-		if (r > 0) generate(str + ")", l, r - 1);
+	void generate(string str, int n, int m) {
+		if (n == 0 && m == 0) ans.push_back(str);
+		if (n > 0) generate(str + "(", n - 1, m + 1);
+		if (m > 0) generate(str + ")", n, m - 1);
 	}
 };

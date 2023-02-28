@@ -3,26 +3,25 @@ using namespace std;
 
 class Solution {
 public:
-    int longestValidParentheses(string s) {
-        int ans = 0;
-        stack<int> cache;
-        cache.push(-1);
-        for (int i = 0; i < s.size(); i++)
-        {
-            if (s.at(i) == '(') {
-                cache.push(i);
-            }
-            else {
-                cache.pop();
-                if (cache.empty()) {
-                    cache.push(i);
-                }
-                else {
-                    ans = max(ans, i - cache.top());
-                }
-            }
-        }
+	int longestValidParentheses(string s) {
+		int ans = 0;
+		stack<int> stk;
+		stk.push(-1);
+		for (int i = 0; i < s.length(); ++i) {
+			if (s[i] == '(') {
+				stk.push(i);
+			}
+			else {
+				stk.pop();
+				if (stk.empty()) {
+					stk.push(i);
+				}
+				else {
+					ans = max(ans, i - stk.top());
+				}
+			}
+		}
 
-        return ans;
-    }
+		return ans;
+	}
 };

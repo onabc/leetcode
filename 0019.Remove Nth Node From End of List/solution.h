@@ -8,16 +8,14 @@ using namespace std;
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode** del = &head, * iter = head;
-        for (int i = 0; i < n; i++) {
-            iter = iter->next;
+        ListNode* dummy = new ListNode(-1, head);
+        ListNode* fast = dummy, *slow = dummy;
+        while (n--)  fast = fast->next; 
+        while (fast->next) {
+            fast = fast->next;
+            slow = slow->next;
         }
-        while (iter != NULL)
-        {
-            del = &((*del)->next);
-            iter = iter->next;
-        }
-        *del = (*del)->next;
-        return head;
+        slow->next = slow->next->next;
+        return dummy->next;
     }
 };
