@@ -36,6 +36,9 @@ add_subdirectory ("0048.Rotate Image")
 add_subdirectory ("0049.Group Anagrams")
 
 
+add_subdirectory ("0053. Maximum Subarray")
+
+
 add_subdirectory ("0070.Climbing Stairs")
 
 add_subdirectory ("Sort Algorithm")
