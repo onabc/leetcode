@@ -32,6 +32,7 @@ add_subdirectory ("0042.Trapping Rain Water")
 
 add_subdirectory ("0046.Permutations")
 
+add_subdirectory ("0048.Rotate Image")
 
 add_subdirectory ("Sort Algorithm")
 
