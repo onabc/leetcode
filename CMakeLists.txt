@@ -30,6 +30,8 @@ add_subdirectory ("0039.Combination Sum")
 
 add_subdirectory ("0042.Trapping Rain Water")
 
+add_subdirectory ("0046.Permutations")
+
 
 add_subdirectory ("Sort Algorithm")
 
