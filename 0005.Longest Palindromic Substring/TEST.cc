@@ -1,11 +1,12 @@
 #define CATCH_CONFIG_MAIN
+
 #include "../Catch/catch.hpp"
 #include "solution.h"
 
 TEST_CASE("Longest Palindromic Substring", "longestPalindrome")
 {
-	Solution s;
-	REQUIRE(s.longestPalindrome("abbabbua") == "bbabb");
-	REQUIRE(s.longestPalindrome("babad") == "bab");
-	REQUIRE(s.longestPalindrome("cbbd") == "bb");
+    Solution s;
+    REQUIRE(s.longestPalindrome("abbabbua") == "bbabb");
+    REQUIRE(s.longestPalindrome("babad") == "bab");
+    REQUIRE(s.longestPalindrome("cbbd") == "bb");
 }
