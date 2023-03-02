@@ -5,9 +5,9 @@
 
 TEST_CASE("Longest Valid Parentheses", "[longestValidParentheses]")
 {
-    Solution s;
+  Solution s;
 
-    REQUIRE(s.longestValidParentheses("(()") == 2);
-    REQUIRE(s.longestValidParentheses(")()())") == 4);
-    REQUIRE(s.longestValidParentheses("") == 0);
+  REQUIRE(s.longestValidParentheses("(()") == 2);
+  REQUIRE(s.longestValidParentheses(")()())") == 4);
+  REQUIRE(s.longestValidParentheses("") == 0);
 }

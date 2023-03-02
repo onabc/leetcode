@@ -5,7 +5,7 @@
 
 TEST_CASE("Letter Combinations of a Phone Number", "[letterCombinations]")
 {
-    Solution s;
-    REQUIRE(s.letterCombinations("23") == vector<string>{"ad", "bd", "cd", "ae", "be", "ce", "af", "bf", "cf"});
-    REQUIRE(s.letterCombinations("") == vector<string>{});
+  Solution s;
+  REQUIRE(s.letterCombinations("23") == vector<string>{"ad", "bd", "cd", "ae", "be", "ce", "af", "bf", "cf"});
+  REQUIRE(s.letterCombinations("") == vector<string>{});
 }

@@ -5,11 +5,11 @@
 
 TEST_CASE("Trapping Rain Water", "[trap]")
 {
-    Solution solution;
+  Solution solution;
 
-    SECTION("one")
-    {
-        vector<int> height{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-        REQUIRE(solution.trap(height) == 6);
-    }
+  SECTION("one")
+  {
+	vector<int> height{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+	REQUIRE(solution.trap(height) == 6);
+  }
 }

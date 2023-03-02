@@ -5,14 +5,13 @@
 
 TEST_CASE("Combination Sum", "[combinationSum]")
 {
-    Solution solution;
+  Solution solution;
 
-    SECTION("one")
-    {
-        vector<int> candidates{2, 3, 6, 7};
-        int target{7};
-        vector<vector<int>> ans{{2, 2, 3},
-                                {7}};
-        REQUIRE(solution.combinationSum(candidates, 7) == ans);
-    }
+  SECTION("one")
+  {
+	vector<int> candidates{2, 3, 6, 7};
+	int target{7};
+	vector<vector<int>> ans{{2, 2, 3}, {7}};
+	REQUIRE(solution.combinationSum(candidates, 7) == ans);
+  }
 }

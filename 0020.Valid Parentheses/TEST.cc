@@ -5,10 +5,10 @@
 
 TEST_CASE("Valid Parentheses", "[isValid]")
 {
-    Solution s;
-    REQUIRE(s.isValid("()") == true);
-    REQUIRE(s.isValid("()[]{}") == true);
-    REQUIRE(s.isValid("(]") == false);
-    REQUIRE(s.isValid("([)]") == false);
-    REQUIRE(s.isValid("]") == false);
+  Solution s;
+  REQUIRE(s.isValid("()") == true);
+  REQUIRE(s.isValid("()[]{}") == true);
+  REQUIRE(s.isValid("(]") == false);
+  REQUIRE(s.isValid("([)]") == false);
+  REQUIRE(s.isValid("]") == false);
 }
