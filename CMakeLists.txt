@@ -42,6 +42,7 @@ add_subdirectory("0056.Merge Intervals")
 
 
 add_subdirectory("0062.Unique Paths")
+add_subdirectory("0064.Minimum Path Sum")
 
 add_subdirectory("0070.Climbing Stairs")
 
