@@ -40,6 +40,9 @@ add_subdirectory("0053.Maximum Subarray")
 add_subdirectory("0055.Jump Game")
 add_subdirectory("0056.Merge Intervals")
 
+
+add_subdirectory("0062.Unique Paths")
+
 add_subdirectory("0070.Climbing Stairs")
 
 add_subdirectory("Sort Algorithm")
