@@ -46,6 +46,8 @@ add_subdirectory("0064.Minimum Path Sum")
 
 add_subdirectory("0070.Climbing Stairs")
 
+add_subdirectory("0072.Edit Distance")
+
 add_subdirectory("Sort Algorithm")
 
 
