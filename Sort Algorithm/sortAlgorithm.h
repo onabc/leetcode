@@ -57,14 +57,19 @@ void insertSort(std::vector<int> &nums) {
   int len = nums.size();
   if (len <= 1) return;
   for (int i = 1; i < len; ++i) {
-	int insertVal = nums[i];
-	int insertIndex = i - 1;
-	while (insertIndex >= 0 && insertVal < nums[insertIndex]) {
-	  nums[insertIndex + 1] = nums[insertIndex];
-	  --insertIndex;
+	for (int j = i - 1; j >= 0 && nums[j] > nums[j + 1]; --j) {
+	  std::swap(nums[j], nums[j + 1]);
 	}
-	nums[insertIndex + 1] = insertVal;
   }
+//  for (int i = 1; i < len; ++i) {
+//	int insertVal = nums[i];
+//	int insertIndex = i - 1;
+//	while (insertIndex >= 0 && insertVal < nums[insertIndex]) {
+//	  nums[insertIndex + 1] = nums[insertIndex];
+//	  --insertIndex;
+//	}
+//	nums[insertIndex + 1] = insertVal;
+//  }
 }
 
 #pragma endregion
