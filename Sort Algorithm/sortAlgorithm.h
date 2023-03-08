@@ -1,5 +1,5 @@
-#ifndef SORTALGORITHM_H
-#define SORTALGORITHM_H
+#ifndef SORT_ALGORITHM_H
+#define SORT_ALGORITHM_H
 
 #include "../include/printArr.h"
 
@@ -100,23 +100,30 @@ void shellSort(std::vector<int> &nums) {
 
 #pragma region 快速排序
 
-void quickSortSub(std::vector<int> &nums, int left, int right) {
-  if (left > right) return;
-  int base = nums[left];
-  int i = left, j = right;
-  while (i != j) {
-	while (nums[j] >= base && i < j) --j;
-	while (nums[i] <= base && i < j) ++i;
-	if (i < j) {
-	  std::swap(nums[i], nums[j]);
+// 返回等于区的左右边界
+std::pair<int, int> partition(std::vector<int> &nums, int l, int r) {
+  int lt = l - 1; //小于区的右边界
+  int gt = r;     //大于区的左边界
+  while (l < gt) { //l表示当前数所在位置，以nums[r]为划分值
+	if (nums[l] < nums[r]) {
+	  std::swap(nums[++lt], nums[l++]);
+	} else if (nums[l] > nums[r]) {
+	  std::swap(nums[--gt], nums[l]);
+	} else {
+	  l++;
 	}
   }
-  // 将基准数放到中间的位置（基准数归位）
-  nums[left] = nums[i];
-  nums[i] = base;
+  std::swap(nums[l], nums[r]);
+  return {lt + 1, gt};
+}
 
-  quickSortSub(nums, left, i - 1);
-  quickSortSub(nums, i + 1, right);
+void quickSortSub(std::vector<int> &nums, int l, int r) {
+  if (l < r) {
+	std::swap(nums[rand() % (r - l + 1) + l], nums[r]);
+	auto p = partition(nums, l, r);
+	quickSortSub(nums, l, p.first - 1);
+	quickSortSub(nums, p.second + 1, r);
+  }
 }
 
 /// <summary>
@@ -130,6 +137,38 @@ void quickSort(std::vector<int> &nums) {
 }
 
 #pragma endregion
+//#pragma region 快速排序
+//
+//void quickSortSub(std::vector<int> &nums, int left, int right) {
+//  if (left > right) return;
+//  int base = nums[left];
+//  int i = left, j = right;
+//  while (i != j) {
+//	while (nums[j] >= base && i < j) --j;
+//	while (nums[i] <= base && i < j) ++i;
+//	if (i < j) {
+//	  std::swap(nums[i], nums[j]);
+//	}
+//  }
+//  // 将基准数放到中间的位置（基准数归位）
+//  nums[left] = nums[i];
+//  nums[i] = base;
+//
+//  quickSortSub(nums, left, i - 1);
+//  quickSortSub(nums, i + 1, right);
+//}
+//
+///// <summary>
+///// 快速排序
+///// </summary>
+///// <param name="nums"></param>
+//void quickSort(std::vector<int> &nums) {
+//  int len = nums.size();
+//  if (len < 2) return;
+//  quickSortSub(nums, 0, len - 1);
+//}
+//
+//#pragma endregion
 
 #pragma region 归并排序
 
@@ -147,11 +186,11 @@ void merge(std::vector<int> &nums, int left, int mid, int right) {
   }
 }
 
-void mergeSort(std::vector<int> &nums, int left, int right) {
+void process(std::vector<int> &nums, int left, int right) {
   int mid = (left + right) / 2;
   if (left < right) {
-	mergeSort(nums, left, mid);
-	mergeSort(nums, mid + 1, right);
+	process(nums, left, mid);
+	process(nums, mid + 1, right);
 	merge(nums, left, mid, right);
   }
 }
@@ -163,7 +202,7 @@ void mergeSort(std::vector<int> &nums, int left, int right) {
 void mergeSort(std::vector<int> &nums) {
   int len = nums.size();
   if (len < 2) return;
-  mergeSort(nums, 0, len - 1);
+  process(nums, 0, len - 1);
 }
 
 #pragma endregion

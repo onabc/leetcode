@@ -43,8 +43,8 @@ TEST_CASE("Sort Algorithm", "[sortAlgorithm]")
 
   SECTION("quick sort")
   {
-	std::vector<int> arr{3, 2, 8, 6, 0, 9, 7};
-	std::vector<int> ans{0, 2, 3, 6, 7, 8, 9};
+	std::vector<int> arr{12, 1, 3, 21, 5, 16, 8, 3, 15, 26, 1, 17, 31};
+	std::vector<int> ans{1, 1, 3, 3, 5, 8, 12, 15, 16, 17, 21, 26, 31};
 	quickSort(arr);
 	//printArr(arr);
 	REQUIRE(arr == ans);
