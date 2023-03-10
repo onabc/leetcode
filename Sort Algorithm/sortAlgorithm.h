@@ -209,24 +209,59 @@ void mergeSort(std::vector<int> &nums) {
 
 #pragma region 基数排序
 
+/**
+ * 求数据的最大位数,决定排序次数
+ * @param nums
+ * @return
+ */
+int maxBit(std::vector<int> &nums) {
+  int maxNum = 0;
+  for (int i = 0; i < nums.size(); i++) {
+	maxNum = std::max(maxNum, nums[i]);
+  }
+  int digits = 0;
+  while (maxNum > 0) {
+	digits++;
+	maxNum /= 10;
+  }
+  return digits;
+}
+
 /// <summary>
 /// 基数排序
 /// </summary>
 /// <param name="nums"></param>
 void radixSort(std::vector<int> &nums) {
+  int d = maxBit(nums), len = nums.size();
+  std::vector<int> tmp(len);
+  int radix = 1;
+  for (int i = 1; i <= d; i++) { //进行d次排序
+	int t = 0;
+	for (int j = 0; j < 10; j++) { //按数位从小到大插进桶中
+	  for (int k = 0; k < len; k++) {
+		if (nums[k] / radix % 10 == j) {
+		  tmp[t++] = nums[k];
+		}
+	  }
+	  if (t == len) break;
+	}
+	nums = tmp; //将临时数组的内容复制回去
+	radix *= 10;
+  }
 }
 
 #pragma endregion
 
 #pragma region 堆排序
 
-void heapAdjust(std::vector<int> &nums, int start, int end) {
+// 在start 和end区间内，如果父节点小于子节点，就交换
+void heapify(std::vector<int> &nums, int start, int end) {
   int root = start;
-  int child = 2 * root + 1;
-  while (child < end) {
-	if (child + 1 <= end && nums[child] < nums[child + 1]) ++child;
-	if (nums[child] <= nums[root]) return;
-	std::swap(nums[root], nums[child]);
+  int child = 2 * root + 1; //左子节点
+  while (child < end) {                                                  // 若子节点指标在范围内才做比较
+	if (child + 1 <= end && nums[child] < nums[child + 1]) ++child;   //先比较两个子节点大小，选择最大的
+	if (nums[child] <= nums[root]) return;                            //如果父节点大于子节点代表调整完毕，直接跳出函数
+	std::swap(nums[root], nums[child]);                                  //否则交换父子内容再继续子节点和孙节点比较
 	root = child;
 	child = 2 * root + 1;
   }
@@ -239,13 +274,17 @@ void heapAdjust(std::vector<int> &nums, int start, int end) {
 void heapSort(std::vector<int> &nums) {
   int len = nums.size();
   if (len < 2) return;
+
+  // 初始化，i从最后一个父节点开始调整
+  // 堆数组的前一半为父节点，后一半为子节点
   for (int i = len / 2 - 1; i >= 0; --i) {
-	heapAdjust(nums, i, len - 1);
+	heapify(nums, i, len - 1);
   }
 
+  //先将第一个元素和已经排好的元素前一位做交换，再从新调整(刚调整的元素之前的元素)，直到排序完毕
   for (int j = len - 1; j > 0; --j) {
 	std::swap(nums[0], nums[j]);
-	heapAdjust(nums, 0, j - 1);
+	heapify(nums, 0, j - 1);
   }
 }
 
