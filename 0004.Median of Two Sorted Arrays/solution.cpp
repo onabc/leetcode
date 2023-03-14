@@ -1,4 +1,5 @@
 #include <vector>
+#include<climits>
 #include "solution.h"
 
 using namespace std;

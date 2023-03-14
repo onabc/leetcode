@@ -51,6 +51,11 @@ add_subdirectory("0072.Edit Distance")
 add_subdirectory("0075.Sort Colors")
 add_subdirectory("0078.Subsets")
 
+
+add_subdirectory("0121.Best Time to Buy and Sell Stock")
+
+add_subdirectory("0136.Single Number")
+
 add_subdirectory("Sort Algorithm")
 
 
