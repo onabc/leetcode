@@ -49,6 +49,7 @@ add_subdirectory("0070.Climbing Stairs")
 add_subdirectory("0072.Edit Distance")
 
 add_subdirectory("0075.Sort Colors")
+add_subdirectory("0076.Minimum Window Substring")
 add_subdirectory("0078.Subsets")
 
 
